@@ -1,0 +1,38 @@
+# ===================================
+# MODIF-AI — Tüm Proje Bağımlılıkları
+# ===================================
+
+# ── Backend (FastAPI) ──
+fastapi[all]>=0.110.0
+uvicorn>=0.27.0
+sqlalchemy[asyncio]>=2.0.0
+sqlmodel>=0.0.16
+alembic>=1.13.0
+asyncpg>=0.29.0
+psycopg2-binary>=2.9.0
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+python-multipart>=0.0.9
+bcrypt>=4.0.0
+PyJWT>=2.8.0
+Pillow>=10.2.0
+httpx>=0.27.0
+aiofiles>=23.0.0
+
+# ── Yapay Zekâ & Derin Öğrenme ──
+torch>=2.0.0
+torchvision>=0.15.0
+tensorflow>=2.15.0
+ultralytics>=8.0.0
+segment-anything>=1.0
+
+# ── Görüntü İşleme & 3D ──
+opencv-python>=4.8.0
+numpy>=1.24.0
+scipy>=1.11.0
+open3d>=0.18.0
+matplotlib>=3.7.0
+
+# ── Yardımcı ──
+requests>=2.31.0
+pandas>=2.0.0

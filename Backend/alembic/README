@@ -1,0 +1,108 @@
+Generic single-database configuration.# Alembic Commands Cheat-Sheet
+
+```
+# Initialize Alembic in your project
+alembic init alembic
+```
+
+Set up Alembic folder structure (`alembic/`, `versions/`, `env.py`, etc.).
+
+```
+alembic revision -m "description"
+```
+
+Create a new **blank** migration; you’ll write schema changes manually.
+
+```
+alembic revision --autogenerate -m "description"
+```
+
+Auto-generate a migration comparing your current models to the database schema.
+
+```
+alembic upgrade head
+```
+
+Apply all migrations to bring database to the latest version.
+
+```
+alembic upgrade <revision_id>
+```
+
+Upgrade schema to a specific revision.
+
+```
+alembic downgrade -1
+```
+
+Revert the most recent migration.
+
+```
+alembic downgrade <revision_id>
+```
+
+Downgrade database schema to a specific past revision.
+
+```
+alembic current
+```
+
+Show which revision is currently applied in the database.
+
+```
+alembic history
+```
+
+List all migrations (past & future) in sequential order.
+
+```
+alembic show <revision_id>
+```
+
+Display the details (upgrade/downgrade code) of a given migration file.
+
+```
+alembic stamp head
+```
+
+Mark the database as if all migrations up to “head” are applied, without running them. Useful when schema structure already matches models but migrations weren’t applied.
+
+```
+alembic heads
+```
+
+Show all current heads (latest migrations); helps to detect branching (multiple heads).
+
+```
+alembic merge <rev_id1> <rev_id2> -m "merge message"
+```
+
+Merge two divergent heads into one. Resolve branches when multiple migrations were created in parallel.
+
+---
+
+## Quick Reference Flow
+
+1. Modify your SQLAlchemy models (add / remove / change something).
+2. Run:
+
+   ```
+   alembic revision --autogenerate -m "add shortlink tables"
+   ```
+
+3. Review the generated migration file (upgrade() / downgrade()). Make any needed manual fixes.
+4. Apply migration:
+
+   ```
+   alembic upgrade head
+   ```
+
+5. If needed rollback:
+
+   ```
+   alembic downgrade -1
+   ```
+
+   or to a specific revision.
+
+   uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
